@@ -73,24 +73,26 @@ void imprimirFila(Fila* q){
  
 main(){
 	setlocale(LC_ALL, "Portuguese");
+	int valor;
 	
 	Fila* q = inicializaFila();
 	
-	insereNaFila(q,20);
-	insereNaFila(q,40);
-	insereNaFila(q,60);
+	for(int i=0;i<5;i++){
+		printf("Digite o valor: ");
+		scanf("%d",&valor);
+		insereNaFila(q,valor);
+	}
+	for(int i=0;i<5;i++){
+		RemoveDaFila(q);
+	}
 	
-	printf("Primeiro Elemento: %d\n",peek(q));
-	printf("Ultimo Elemento: %d\n",rear(q));
-	
-	RemoveDaFila(q);
-	printf("Após remover, primeiro elemento: %d\n",peek(q));
-	RemoveDaFila(q);
-	
+	imprimirFila(q);
 	
 	if(isEmpty(q)){
 		printf("A Fila está vazia!\n");
 	}
-
-	imprimirFila(q);
+	
+	
+	/*printf("Primeiro Elemento: %d\n",peek(q));
+	printf("Ultimo Elemento: %d\n",rear(q));*/
 }
